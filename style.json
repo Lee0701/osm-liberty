@@ -9,7 +9,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key={key}"
+      "url": "mbtiles:///data/tiles.mbtiles"
     },
     "natural_earth_shaded_relief": {
       "maxzoom": 6,
@@ -21,7 +21,7 @@
     }
   },
   "sprite": "https://maputnik.github.io/osm-liberty/sprites/osm-liberty",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key={key}",
+  "glyphs": "{fontstack}/{range}.pbf",
   "layers": [
     {
       "id": "background",
@@ -1325,8 +1325,8 @@
       "source-layer": "waterway",
       "filter": ["all", ["==", "$type", "LineString"]],
       "layout": {
-        "text-field": "{name}",
-        "text-font": ["Roboto Regular"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular"],
         "text-max-width": 5,
         "text-size": 12,
         "symbol-placement": "line"
@@ -1344,8 +1344,8 @@
       "source-layer": "water_name",
       "filter": ["==", "$type", "Point"],
       "layout": {
-        "text-field": "{name}",
-        "text-font": ["Roboto Regular"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular"],
         "text-max-width": 5,
         "text-size": 12
       },
@@ -1365,8 +1365,8 @@
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 9,
         "text-offset": [0, 0.6],
         "text-size": 12
@@ -1393,8 +1393,8 @@
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 9,
         "text-offset": [0, 0.6],
         "text-size": 12
@@ -1421,8 +1421,8 @@
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 9,
         "text-offset": [0, 0.6],
         "text-size": 12
@@ -1443,8 +1443,8 @@
       "layout": {
         "icon-image": "{class}_11",
         "text-anchor": "left",
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 9,
         "text-offset": [0.9, 0],
         "text-size": 12
@@ -1465,8 +1465,8 @@
       "layout": {
         "symbol-placement": "line",
         "text-anchor": "center",
-        "text-field": "{name}",
-        "text-font": ["Roboto Regular"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular"],
         "text-offset": [0, 0.15],
         "text-size": {"base": 1, "stops": [[13, 12], [14, 13]]}
       },
@@ -1489,7 +1489,7 @@
         "symbol-placement": {"base": 1, "stops": [[10, "point"], [11, "line"]]},
         "symbol-spacing": 500,
         "text-field": "{ref}",
-        "text-font": ["Roboto Regular"],
+        "text-font": ["Noto Sans Regular"],
         "text-offset": [0, 0.1],
         "text-rotation-alignment": "viewport",
         "text-size": 10,
@@ -1515,8 +1515,8 @@
         ]
       ],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-letter-spacing": 0.1,
         "text-max-width": 9,
         "text-size": {"base": 1.2, "stops": [[12, 10], [15, 14]]},
@@ -1535,8 +1535,8 @@
       "source-layer": "place",
       "filter": ["all", ["==", "class", "village"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Regular"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-size": {"base": 1.2, "stops": [[10, 12], [15, 22]]}
       },
@@ -1555,8 +1555,8 @@
       "layout": {
         "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Regular"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular"],
         "text-max-width": 8,
         "text-offset": [0, 0],
         "text-size": {"base": 1.2, "stops": [[7, 12], [11, 16]]}
@@ -1577,8 +1577,8 @@
       "layout": {
         "icon-image": {"base": 1, "stops": [[0, "dot_9"], [8, ""]]},
         "text-anchor": "bottom",
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Medium"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Medium"],
         "text-max-width": 8,
         "text-offset": [0, 0],
         "text-size": {"base": 1.2, "stops": [[7, 14], [11, 24]]},
@@ -1599,8 +1599,8 @@
       "maxzoom": 6,
       "filter": ["all", ["==", "class", "state"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-size": {"stops": [[4, 11], [6, 15]]},
         "text-transform": "uppercase"
       },
@@ -1617,8 +1617,8 @@
       "source-layer": "place",
       "filter": ["all", [">=", "rank", 3], ["==", "class", "country"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[3, 11], [7, 17]]},
         "text-transform": "none"
@@ -1637,8 +1637,8 @@
       "source-layer": "place",
       "filter": ["all", ["==", "rank", 2], ["==", "class", "country"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[2, 11], [5, 17]]},
         "text-transform": "none"
@@ -1657,8 +1657,8 @@
       "source-layer": "place",
       "filter": ["all", ["==", "rank", 1], ["==", "class", "country"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-max-width": 6.25,
         "text-size": {"stops": [[1, 11], [4, 17]]},
         "text-transform": "none"
@@ -1678,8 +1678,8 @@
       "maxzoom": 1,
       "filter": ["all", ["==", "class", "continent"]],
       "layout": {
-        "text-field": "{name_en}",
-        "text-font": ["Roboto Condensed Italic"],
+        "text-field": ["coalesce", ["get", "name:ko-Hani"], ["get", "name:ko-hani"], ["get", "name:ko-Hanja"], ["get", "name:ko-hanja"], ["get", "name:ko_hanja"], ["get", "name:ko-Kore"], ["get", "name:ko-kore"], ["get", "name:ko"], ["get", "name"]],
+        "text-font": ["Noto Sans Regular Italic"],
         "text-size": 13,
         "text-transform": "uppercase",
         "text-justify": "center"
